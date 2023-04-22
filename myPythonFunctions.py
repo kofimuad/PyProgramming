@@ -50,11 +50,19 @@ def generateQuestion():
     operatorList = ['', '', '', '']
     operatorDict = {1: ' + ', 2: ' - ', 3: '*', 4: '**'}
 
+# Updating operandList with Random Numbers
+
     for index in range(0, 5):
         operandList = randint(1, 9)
 
     for index in range(0, 4):
         if index > 0 and operatorList[index-1] != '**':
+
+# The problem is, when we have two consecutive exponent operators in Python, such as 2**3**2,
+# Python interprets it as 2**(3**2) instead of (2**3)**2. In the first case, the answer is 2 to the
+# power of 9 (i.e. 29) which is 512. In the second case, the answer is 8 to the power of 2 (i.e. 82)
+# which is 64. Hence when we present a question like 2**3**2, the user will get the answer wrong if he interprets it as (2**3)**2.
+
             operator = operatorDict[randint(1, 4)]
         else:
             operator = operatorDict[randint(1, 3)]
