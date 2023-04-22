@@ -1,3 +1,3 @@
 # PyProgramming
 
-The important ones are my module and my game. 
+The important ones are my module and math game. 
